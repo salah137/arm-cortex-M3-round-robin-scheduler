@@ -135,7 +135,9 @@ __attribute__((naked)) void PendSv_handler(void) {
                    "ldmia r0!,{r4-r11}      \n\t"
                    "msr psp,r0              \n\t"
                    "cpsie i                 \n\t"
-                   "bx lr                   \n\t"
+
+                   "ldr lr, =0xFFFFFFFD     \n\t"   
+                   "bx lr                   \n\t"                 
                    : : :"memory"
                    );
 }

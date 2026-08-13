@@ -54,7 +54,7 @@ int app_main(){
     start_routines();
 
     __asm__ volatile(
-        "svc #0\n\t"
+    //    "svc #0\n\t"
         "mov r0,#0\n\t"
         
         "msr psp,r0\n\t"

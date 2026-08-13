@@ -28,6 +28,6 @@ void *allocate_dumb(my_heap_t *heap, size_t size) {
   }
 
   heap->pos += size;
-  __asm__ volatile("cpsie i" : : : "memory");
+  // __asm__ volatile("cpsie i" : : : "memory");
   return (void *)entry;
 }

@@ -51,7 +51,7 @@ RAM              0x20000000         0x00002000         xrw
 Linker script and memory map
 
 
-.text           0x08000000      0x4cc
+.text           0x08000000      0x4d0
                 0x08000000                        . = ALIGN (0x4)
                 0x08000000                        _stext = .
  *(.vector_table)
@@ -64,7 +64,7 @@ Linker script and memory map
                 0x08000054                task3
                 0x0800005e                setup
                 0x080000ac                app_main
- .text          0x080000d0      0x118 o_files/stm32_startup.o
+ .text          0x080000d0      0x11c o_files/stm32_startup.o
                 0x080000d0                reset_handler
                 0x08000144                NMI_Handler
                 0x08000144                Default_Handler
@@ -72,41 +72,42 @@ Linker script and memory map
                 0x08000156                Systick_Init
                 0x08000188                Systick_Handler
                 0x080001a0                PendSv_handler
-                0x080001d0                SVC_Handler
- .text          0x080001e8      0x240 o_files/task.o
-                0x080001e8                thread_exit
-                0x080001f0                create_thread
-                0x080003dc                start_routines
-                0x080003f8                next_task
- .text          0x08000428       0x8c o_files/m_heap.o
-                0x08000428                destroy_dumb
-                0x08000452                allocate_dumb
+                0x080001d4                SVC_Handler
+ .text          0x080001ec      0x240 o_files/task.o
+                0x080001ec                thread_exit
+                0x080001f4                create_thread
+                0x080003e0                start_routines
+                0x080003fc                next_task
+ .text          0x0800042c       0x8a o_files/m_heap.o
+                0x0800042c                destroy_dumb
+                0x08000456                allocate_dumb
  *(.rodata*)
- .rodata        0x080004b4       0x16 o_files/main.o
-                0x080004cc                        . = ALIGN (0x4)
- *fill*         0x080004ca        0x2 
-                0x080004cc                        _etext = .
-                0x080004cc                        _sidata = LOADADDR (.data)
+ *fill*         0x080004b6        0x2 
+ .rodata        0x080004b8       0x16 o_files/main.o
+                0x080004d0                        . = ALIGN (0x4)
+ *fill*         0x080004ce        0x2 
+                0x080004d0                        _etext = .
+                0x080004d0                        _sidata = LOADADDR (.data)
 
-.glue_7         0x080004cc        0x0
- .glue_7        0x080004cc        0x0 linker stubs
+.glue_7         0x080004d0        0x0
+ .glue_7        0x080004d0        0x0 linker stubs
 
-.glue_7t        0x080004cc        0x0
- .glue_7t       0x080004cc        0x0 linker stubs
+.glue_7t        0x080004d0        0x0
+ .glue_7t       0x080004d0        0x0 linker stubs
 
-.vfp11_veneer   0x080004cc        0x0
- .vfp11_veneer  0x080004cc        0x0 linker stubs
+.vfp11_veneer   0x080004d0        0x0
+ .vfp11_veneer  0x080004d0        0x0 linker stubs
 
-.v4_bx          0x080004cc        0x0
- .v4_bx         0x080004cc        0x0 linker stubs
+.v4_bx          0x080004d0        0x0
+ .v4_bx         0x080004d0        0x0 linker stubs
 
-.iplt           0x080004cc        0x0
- .iplt          0x080004cc        0x0 o_files/main.o
+.iplt           0x080004d0        0x0
+ .iplt          0x080004d0        0x0 o_files/main.o
 
-.rel.dyn        0x080004cc        0x0
- .rel.iplt      0x080004cc        0x0 o_files/main.o
+.rel.dyn        0x080004d0        0x0
+ .rel.iplt      0x080004d0        0x0 o_files/main.o
 
-.data           0x20000000       0x10 load address 0x080004cc
+.data           0x20000000       0x10 load address 0x080004d0
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data*)
@@ -118,10 +119,10 @@ Linker script and memory map
                 0x20000010                        . = ALIGN (0x4)
                 0x20000010                        _edata = .
 
-.igot.plt       0x20000010        0x0 load address 0x080004dc
+.igot.plt       0x20000010        0x0 load address 0x080004e0
  .igot.plt      0x20000010        0x0 o_files/main.o
 
-.bss            0x20000010      0x80c load address 0x080004dc
+.bss            0x20000010      0x80c load address 0x080004e0
                 0x20000010                        . = ALIGN (0x4)
                 0x20000010                        _sbss = .
  *(.bss*)
@@ -191,11 +192,11 @@ LOAD linker stubs
  .debug_macro   0x00001a22       0x29 o_files/task.o
  .debug_macro   0x00001a4b       0x33 o_files/m_heap.o
 
-.debug_line     0x00000000      0x5c6
+.debug_line     0x00000000      0x5c2
  .debug_line    0x00000000       0xcf o_files/main.o
  .debug_line    0x000000cf      0x120 o_files/stm32_startup.o
- .debug_line    0x000001ef      0x2e5 o_files/task.o
- .debug_line    0x000004d4       0xf2 o_files/m_heap.o
+ .debug_line    0x000001ef      0x2e4 o_files/task.o
+ .debug_line    0x000004d3       0xef o_files/m_heap.o
 
 .debug_str      0x00000000     0x6b25
  .debug_str     0x00000000     0x6b25 o_files/main.o

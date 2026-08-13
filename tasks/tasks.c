@@ -45,7 +45,7 @@ int create_thread(char *name, void (*thread_function)(void *),
     head->thread_function = thread_function;
     head->id = 0;
     head->stack_top = &_estack - (stack_size / 4);
-    head->stack_end = head->stack_top + (stack_size / 4);
+    head->stack_end = head->stack_top - (stack_size / 4);
     head->stack_size = stack_size;
     head->params = params;
 
