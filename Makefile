@@ -42,4 +42,4 @@ gdb: $(PROJECT).elf
 	$(GDB) -q $(PROJECT).elf -ex "target remote localhost:1234"
 
 clean:
-	rm -f *.o *.elf *.map *.lst *.debug
+	rm -f *.o *.elf *.map *.lst *.debug o_files/*.o

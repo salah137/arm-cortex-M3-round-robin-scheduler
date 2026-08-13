@@ -43,6 +43,7 @@ void Default_Handler(void);
 void Systick_Handler(void);
 void Systick_Init(void);
 void PendSv_handler(void);
+void SVC_Handler(void);
 
 void NMI_Handler(void) __attribute__((weak, alias("Default_Handler")));
 void Hard_fault(void);
@@ -59,7 +60,7 @@ __attribute__((section(".vector_table"))) const uint32_t vector_table[] = {
     0,
     0,
     0,
-    (uint32_t)Default_Handler,
+    (uint32_t)SVC_Handler, //dd
     (uint32_t)Default_Handler,
     0,
     (uint32_t)PendSv_handler,
@@ -137,4 +138,17 @@ __attribute__((naked)) void PendSv_handler(void) {
                    "bx lr                   \n\t"
                    : : :"memory"
                    );
+}
+
+
+__attribute__((naked)) void SVC_Handler(void){
+    __asm__ volatile(
+            "cpsid i         \n\t"
+            "mov r3, #2      \n\t"
+            "msr control, r3 \n\t"
+            "isb             \n\t" // CRITICAL: Forces the CPU to map the register change instantly
+            "cpsie i         \n\t"
+            "bx lr           \n\t" // CRITICAL: You must explicitly exit!
+            : : : "r3", "memory"
+    );
 }

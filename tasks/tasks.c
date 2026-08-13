@@ -9,6 +9,7 @@
 extern uint32_t _estack;
 
 uint8_t my_dump_heap[2048] __attribute__((aligned(8))) = {0};
+static int last_id = 0;
 
 my_heap_t my_heap = {
     .start = &my_dump_heap[0],
@@ -27,6 +28,7 @@ thread_t *current_task = (thread_t *)0;
 
 int create_thread(char *name, void (*thread_function)(void *),
                   uint32_t stack_size, void *params) {
+
   if (stack_size > 8192 || stack_size <= 0) {
     return -1;
   }
@@ -69,10 +71,12 @@ int create_thread(char *name, void (*thread_function)(void *),
     current_task->next_task = new_task;
 
     current_task = new_task;
+    
+    last_id = new_task->id;
   }
 
   // prepare stack
-  uint32_t sp_addr = (uint32_t)current_task->stack_end;
+  uint32_t sp_addr = (uint32_t)current_task->stack_top;
 
   uint32_t *sp = (uint32_t *)sp_addr;
 
@@ -97,7 +101,7 @@ int create_thread(char *name, void (*thread_function)(void *),
 void start_routines() { current_task = head; }
 
 void next_task() {
-  if (current_task->next_task != NULL) {
+  if (current_task->id != last_id) {
     current_task = current_task->next_task;
   } else {
     start_routines();
