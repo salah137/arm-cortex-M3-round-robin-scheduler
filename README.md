@@ -44,7 +44,12 @@
 ## Building and Running
 - the programe QEMU arm-emulator, and GDB for debuging
 
-- first, compile and start the GDB server :
+- first, start clean :
+``` shell
+  make clean
+```
+
+- compile and start the GDB server :
 ``` shell
     make qemu
 ```
