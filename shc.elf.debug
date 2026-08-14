@@ -8,9 +8,9 @@ ELF Header:
   Type:                              EXEC (Executable file)
   Machine:                           ARM
   Version:                           0x1
-  Entry point address:               0x80000d1
+  Entry point address:               0x8000151
   Start of program headers:          52 (bytes into file)
-  Start of section headers:          49684 (bytes into file)
+  Start of section headers:          49964 (bytes into file)
   Flags:                             0x5000200, Version5 EABI, soft-float ABI
   Size of this header:               52 (bytes)
   Size of program headers:           32 (bytes)
@@ -22,21 +22,21 @@ ELF Header:
 Section Headers:
   [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
   [ 0]                   NULL            00000000 000000 000000 00      0   0  0
-  [ 1] .text             PROGBITS        08000000 001000 0004d0 00  AX  0   0  4
+  [ 1] .text             PROGBITS        08000000 001000 000550 00  AX  0   0  4
   [ 2] .data             PROGBITS        20000000 002000 000010 00  WA  0   0  4
   [ 3] .bss              NOBITS          20000010 002010 00080c 00  WA  0   0  8
-  [ 4] .debug_info       PROGBITS        00000000 002010 0007db 00      0   0  1
-  [ 5] .debug_abbrev     PROGBITS        00000000 0027eb 0004eb 00      0   0  1
-  [ 6] .debug_aranges    PROGBITS        00000000 002cd6 000080 00      0   0  1
-  [ 7] .debug_macro      PROGBITS        00000000 002d56 001a7e 00      0   0  1
-  [ 8] .debug_line       PROGBITS        00000000 0047d4 0005c2 00      0   0  1
-  [ 9] .debug_str        PROGBITS        00000000 004d96 006b25 01  MS  0   0  1
-  [10] .comment          PROGBITS        00000000 00b8bb 000026 01  MS  0   0  1
-  [11] .ARM.attributes   ARM_ATTRIBUTES  00000000 00b8e1 00002d 00      0   0  1
-  [12] .debug_frame      PROGBITS        00000000 00b910 000254 00      0   0  4
-  [13] .symtab           SYMTAB          00000000 00bb64 000490 10     14  41  4
-  [14] .strtab           STRTAB          00000000 00bff4 000180 00      0   0  1
-  [15] .shstrtab         STRTAB          00000000 00c174 00009f 00      0   0  1
+  [ 4] .debug_info       PROGBITS        00000000 002010 00082d 00      0   0  1
+  [ 5] .debug_abbrev     PROGBITS        00000000 00283d 00050e 00      0   0  1
+  [ 6] .debug_aranges    PROGBITS        00000000 002d4b 000080 00      0   0  1
+  [ 7] .debug_macro      PROGBITS        00000000 002dcb 001a7e 00      0   0  1
+  [ 8] .debug_line       PROGBITS        00000000 004849 0005ef 00      0   0  1
+  [ 9] .debug_str        PROGBITS        00000000 004e38 006b2d 01  MS  0   0  1
+  [10] .comment          PROGBITS        00000000 00b965 000026 01  MS  0   0  1
+  [11] .ARM.attributes   ARM_ATTRIBUTES  00000000 00b98b 00002d 00      0   0  1
+  [12] .debug_frame      PROGBITS        00000000 00b9b8 0002ac 00      0   0  4
+  [13] .symtab           SYMTAB          00000000 00bc64 0004a0 10     14  41  4
+  [14] .strtab           STRTAB          00000000 00c104 000188 00      0   0  1
+  [15] .shstrtab         STRTAB          00000000 00c28c 00009f 00      0   0  1
 Key to Flags:
   W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
   L (link order), O (extra OS processing required), G (group), T (TLS),
@@ -47,8 +47,8 @@ There are no section groups in this file.
 
 Program Headers:
   Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
-  LOAD           0x001000 0x08000000 0x08000000 0x004d0 0x004d0 R E 0x1000
-  LOAD           0x002000 0x20000000 0x080004d0 0x00010 0x0081c RW  0x1000
+  LOAD           0x001000 0x08000000 0x08000000 0x00550 0x00550 R E 0x1000
+  LOAD           0x002000 0x20000000 0x08000550 0x00010 0x0081c RW  0x1000
 
  Section to Segment mapping:
   Segment Sections...
@@ -61,7 +61,7 @@ There are no relocations in this file.
 
 There are no unwind sections in this file.
 
-Symbol table '.symtab' contains 73 entries:
+Symbol table '.symtab' contains 74 entries:
    Num:    Value  Size Type    Bind   Vis      Ndx Name
      0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
      1: 08000000     0 SECTION LOCAL  DEFAULT    1 .text
@@ -78,64 +78,65 @@ Symbol table '.symtab' contains 73 entries:
     12: 00000000     0 SECTION LOCAL  DEFAULT   12 .debug_frame
     13: 00000000     0 FILE    LOCAL  DEFAULT  ABS stm32_startup.c
     14: 08000000     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    15: 080000d0     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    16: 0800012c     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    17: 08000144     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    18: 08000184     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    19: 08000188     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    20: 0800019c     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    21: 080001a0     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    22: 080001e8     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    15: 08000150     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    16: 080001ac     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    17: 080001c4     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    18: 08000204     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    19: 08000208     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    20: 0800021c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    21: 08000220     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    22: 08000268     0 NOTYPE  LOCAL  DEFAULT    1 $d
     23: 00000000     0 FILE    LOCAL  DEFAULT  ABS main.c
     24: 08000040     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    25: 080004b8     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    26: 08000094     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    27: 080000ac     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    28: 080000cc     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    25: 08000538     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    26: 08000114     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    27: 0800012c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    28: 0800014c     0 NOTYPE  LOCAL  DEFAULT    1 $d
     29: 00000000     0 FILE    LOCAL  DEFAULT  ABS tasks.c
     30: 20000010     0 NOTYPE  LOCAL  DEFAULT    3 $d
     31: 20000810     4 NOTYPE  LOCAL  DEFAULT    3 last_id
     32: 20000000     0 NOTYPE  LOCAL  DEFAULT    2 $d
-    33: 080001ec     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    34: 080003c8     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    35: 080003e0     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    36: 080003f4     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    37: 080003fc     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    38: 08000424     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    33: 0800026c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    34: 08000448     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    35: 08000460     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    36: 08000474     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    37: 0800047c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    38: 080004a4     0 NOTYPE  LOCAL  DEFAULT    1 $d
     39: 00000000     0 FILE    LOCAL  DEFAULT  ABS my_heap.c
-    40: 0800042c     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    41: 080003fd    48 FUNC    GLOBAL DEFAULT    1 next_task
-    42: 080000d1   116 FUNC    GLOBAL DEFAULT    1 reset_handler
-    43: 080001ed     8 FUNC    GLOBAL DEFAULT    1 thread_exit
-    44: 08000189    24 FUNC    GLOBAL DEFAULT    1 Systick_Handler
-    45: 080004d0     0 NOTYPE  GLOBAL DEFAULT  ABS _sidata
-    46: 08000145     6 FUNC    WEAK   DEFAULT    1 NMI_Handler
-    47: 080004d0     0 NOTYPE  GLOBAL DEFAULT    1 _etext
+    40: 080004ac     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    41: 0800047d    48 FUNC    GLOBAL DEFAULT    1 next_task
+    42: 08000151   116 FUNC    GLOBAL DEFAULT    1 reset_handler
+    43: 0800026d     8 FUNC    GLOBAL DEFAULT    1 thread_exit
+    44: 08000209    24 FUNC    GLOBAL DEFAULT    1 Systick_Handler
+    45: 08000550     0 NOTYPE  GLOBAL DEFAULT  ABS _sidata
+    46: 080001c5     6 FUNC    WEAK   DEFAULT    1 NMI_Handler
+    47: 08000550     0 NOTYPE  GLOBAL DEFAULT    1 _etext
     48: 20000010     0 NOTYPE  GLOBAL DEFAULT    3 _sbss
-    49: 20000000     0 NOTYPE  GLOBAL DEFAULT    2 _sdata
-    50: 20000010  2048 OBJECT  GLOBAL DEFAULT    3 my_dump_heap
-    51: 2000081c     0 NOTYPE  GLOBAL DEFAULT    3 _ebss
-    52: 08000000    64 OBJECT  GLOBAL DEFAULT    1 vector_table
-    53: 080003e1    28 FUNC    GLOBAL DEFAULT    1 start_routines
-    54: 20000814     4 OBJECT  GLOBAL DEFAULT    3 head
-    55: 08000041    10 FUNC    GLOBAL DEFAULT    1 task1
-    56: 08000145     6 FUNC    GLOBAL DEFAULT    1 Default_Handler
-    57: 0800004b    10 FUNC    GLOBAL DEFAULT    1 task2
-    58: 08000457    96 FUNC    GLOBAL DEFAULT    1 allocate_dumb
-    59: 20000818     4 OBJECT  GLOBAL DEFAULT    3 current_task
-    60: 20000000    16 OBJECT  GLOBAL DEFAULT    2 my_heap
-    61: 0800042d    42 FUNC    GLOBAL DEFAULT    1 destroy_dumb
-    62: 0800014b    12 FUNC    GLOBAL DEFAULT    1 Hard_fault
-    63: 080001a1    52 FUNC    GLOBAL DEFAULT    1 PendSv_handler
-    64: 080001d5    20 FUNC    GLOBAL DEFAULT    1 SVC_Handler
-    65: 080001f5   492 FUNC    GLOBAL DEFAULT    1 create_thread
-    66: 0800005f    78 FUNC    GLOBAL DEFAULT    1 setup
-    67: 20002000     0 NOTYPE  GLOBAL DEFAULT    3 _estack
-    68: 20000010     0 NOTYPE  GLOBAL DEFAULT    2 _edata
-    69: 08000000     0 NOTYPE  GLOBAL DEFAULT    1 _stext
-    70: 080000ad    36 FUNC    GLOBAL DEFAULT    1 app_main
-    71: 08000055    10 FUNC    GLOBAL DEFAULT    1 task3
-    72: 08000157    50 FUNC    GLOBAL DEFAULT    1 Systick_Init
+    49: 08000041    22 FUNC    GLOBAL DEFAULT    1 test_st
+    50: 20000000     0 NOTYPE  GLOBAL DEFAULT    2 _sdata
+    51: 20000010  2048 OBJECT  GLOBAL DEFAULT    3 my_dump_heap
+    52: 2000081c     0 NOTYPE  GLOBAL DEFAULT    3 _ebss
+    53: 08000000    64 OBJECT  GLOBAL DEFAULT    1 vector_table
+    54: 08000461    28 FUNC    GLOBAL DEFAULT    1 start_routines
+    55: 20000814     4 OBJECT  GLOBAL DEFAULT    3 head
+    56: 08000057    44 FUNC    GLOBAL DEFAULT    1 task1
+    57: 080001c5     6 FUNC    GLOBAL DEFAULT    1 Default_Handler
+    58: 08000083    44 FUNC    GLOBAL DEFAULT    1 task2
+    59: 080004d7    96 FUNC    GLOBAL DEFAULT    1 allocate_dumb
+    60: 20000818     4 OBJECT  GLOBAL DEFAULT    3 current_task
+    61: 20000000    16 OBJECT  GLOBAL DEFAULT    2 my_heap
+    62: 080004ad    42 FUNC    GLOBAL DEFAULT    1 destroy_dumb
+    63: 080001cb    12 FUNC    GLOBAL DEFAULT    1 Hard_fault
+    64: 08000221    52 FUNC    GLOBAL DEFAULT    1 PendSv_handler
+    65: 08000255    20 FUNC    GLOBAL DEFAULT    1 SVC_Handler
+    66: 08000275   492 FUNC    GLOBAL DEFAULT    1 create_thread
+    67: 080000df    78 FUNC    GLOBAL DEFAULT    1 setup
+    68: 20002000     0 NOTYPE  GLOBAL DEFAULT    3 _estack
+    69: 20000010     0 NOTYPE  GLOBAL DEFAULT    2 _edata
+    70: 08000000     0 NOTYPE  GLOBAL DEFAULT    1 _stext
+    71: 0800012d    36 FUNC    GLOBAL DEFAULT    1 app_main
+    72: 080000af    48 FUNC    GLOBAL DEFAULT    1 task3
+    73: 080001d7    50 FUNC    GLOBAL DEFAULT    1 Systick_Init
 
 No version information found in this file.
 Attribute Section: aeabi
