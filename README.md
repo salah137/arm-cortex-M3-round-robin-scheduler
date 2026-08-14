@@ -41,7 +41,7 @@
   - `arm-none-eabi-ld` for linking
   -  `arm-none-eabi-gdb` for gdb debuguing
 
-## runing it
+## Building and Running
 - the programe QEMU arm-emulator, and GDB for debuging
 
 - first, compile and start the GDB server :
